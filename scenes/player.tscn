@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cec5jghw8yts2"]
+
+[ext_resource type="Script" uid="uid://fl3pvt6gn0sc" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cxrfyoaofu55u" path="res://icon.svg" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://dm82cjbl33gsa" path="res://scenes/bubble_pool.tscn" id="3_qhqgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k21bs"]
+size = Vector2(60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("2_g2els")
+region = Rect2(-64, 0, 128, 128)
+
+[node name="Player" type="CharacterBody2D" unique_id=1794677162]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=784452370]
+shape = SubResource("RectangleShape2D_k21bs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1878433544]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_d2wvv")
+
+[node name="BubblePool" parent="." unique_id=1145037999 instance=ExtResource("3_qhqgy")]

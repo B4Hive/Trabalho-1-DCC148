@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dm82cjbl33gsa"]
+
+[ext_resource type="Script" uid="uid://bp8xkpb33syqt" path="res://scripts/bubble_pool.gd" id="1_yip74"]
+[ext_resource type="PackedScene" uid="uid://btymocdop58w0" path="res://scenes/bubble.tscn" id="2_0agt2"]
+
+[node name="BubblePool" type="Node" unique_id=1145037999]
+script = ExtResource("1_yip74")
+
+[node name="Bubble" parent="." unique_id=1654777436 instance=ExtResource("2_0agt2")]
+visible = false
+
+[connection signal="area_entered" from="Bubble" to="Bubble" method="_on_area_entered"]
+[connection signal="bubbleHit" from="Bubble" to="." method="_on_bubble_bubble_hit"]
