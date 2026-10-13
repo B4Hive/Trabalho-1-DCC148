@@ -38,3 +38,5 @@ func _process(_delta: float) -> void:
 		if not b == null:
 			b.position = position
 			b.dir = dir
+
+#TODO player takes damage if touching enemy

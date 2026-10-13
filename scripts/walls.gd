@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var plataforma:StaticBody2D = $Platform
+@onready var plataform:StaticBody2D = $Platform
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func start() -> void:
 	placePlatforms(532)
 	placePlatforms(364)
 	placePlatforms(196)
@@ -18,7 +18,7 @@ func placePlatforms(y:float)->void:
 	plat[pos+1] = 0
 	for i in range(9):
 		if plat[i] == 1:
-			var p = plataforma.duplicate()
+			var p = plataform.duplicate()
 			add_child(p)
 			p.show()
 			p.position.y = y

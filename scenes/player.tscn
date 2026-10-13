@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btymocdop58w0" path="res://scenes/bubble.tscn" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k21bs"]
-size = Vector2(60, 60)
+size = Vector2(63, 63)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
 atlas = ExtResource("2_g2els")

@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://bqhgfnvbjq3ny"]
+
+[sub_resource type="SystemFont" id="SystemFont_yf5fn"]
+font_names = PackedStringArray("Lucida Console")
+
+[resource]
+default_font = SubResource("SystemFont_yf5fn")
+default_font_size = 32
+Button/constants/outline_size = 8
+Label/constants/outline_size = 8
