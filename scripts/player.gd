@@ -4,6 +4,10 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 
 @onready var sprite = $Sprite2D
+@onready var pool = $BubblePool
+
+func _ready() -> void:
+	pool.returnOnSignal("bubblePop")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -30,6 +34,7 @@ func _process(_delta: float) -> void:
 		var dir = Vector2.RIGHT
 		if sprite.flip_h:
 			dir *= -1
-		var b = $BubblePool.getFromPool(dir)
-		if b:
+		var b:Area2D = pool.getFromPool()
+		if not b == null:
 			b.position = position
+			b.dir = dir

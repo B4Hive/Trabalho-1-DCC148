@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://fl3pvt6gn0sc" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cxrfyoaofu55u" path="res://icon.svg" id="2_g2els"]
-[ext_resource type="PackedScene" uid="uid://dm82cjbl33gsa" path="res://scenes/bubble_pool.tscn" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://byfgk8mba0wuf" path="res://scripts/object_pool.gd" id="3_dqkch"]
+[ext_resource type="PackedScene" uid="uid://btymocdop58w0" path="res://scenes/bubble.tscn" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k21bs"]
 size = Vector2(60, 60)
@@ -21,4 +22,7 @@ shape = SubResource("RectangleShape2D_k21bs")
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_d2wvv")
 
-[node name="BubblePool" parent="." unique_id=1145037999 instance=ExtResource("3_qhqgy")]
+[node name="BubblePool" type="Node" parent="." unique_id=1087692396]
+script = ExtResource("3_dqkch")
+poolScene = ExtResource("3_qhqgy")
+poolSize = 50
