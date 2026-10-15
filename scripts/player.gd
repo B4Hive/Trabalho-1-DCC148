@@ -10,9 +10,11 @@ func _ready() -> void:
 	pool.returnOnSignal("bubblePop")
 
 func _physics_process(delta: float) -> void:
+	var animation:String = "idle"
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		animation = "jump"
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -21,12 +23,16 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		if is_on_floor():
+			animation = "walk"
+		else:
+			animation = "jump"
 		# TODO: change sprite for this to be visible
 		if direction > 0: sprite.flip_h = false
 		if direction < 0: sprite.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
+	sprite.play(animation)
 	move_and_slide()
 
 func _process(_delta: float) -> void:

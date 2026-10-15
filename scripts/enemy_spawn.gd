@@ -13,6 +13,7 @@ func start()->void:
 	timer.start(3)
 
 func _on_timer_timeout() -> void:
+	#TODO tratar respawn direito... ao invés de size + 2
 	if get_children().size() < limit:
 		var e = enemy.duplicate()
 		add_child(e)
