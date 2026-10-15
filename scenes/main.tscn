@@ -40,6 +40,16 @@ size_flags_vertical = 0
 theme = ExtResource("7_o6xl0")
 text = "Score: 0"
 
+[node name="HPLabel" type="Label" parent="." unique_id=1875763938]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme = ExtResource("7_o6xl0")
+text = "HP: 0"
+
 [node name="Background" type="StaticBody2D" parent="." unique_id=1221861141]
 collision_layer = 3
 collision_mask = 3
@@ -92,7 +102,7 @@ collision_mask = 3
 position = Vector2(640, 1)
 script = ExtResource("4_bcbe7")
 
-[node name="Enemy" parent="EnemySpawn" unique_id=1061809710 instance=ExtResource("4_7yu4j")]
+[node name="Enemy" parent="EnemySpawn" unique_id=1061809710 groups=["enemies"] instance=ExtResource("4_7yu4j")]
 visible = false
 
 [node name="Timer" type="Timer" parent="EnemySpawn" unique_id=354304475]
@@ -113,9 +123,9 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("7_o6xl0")
 theme_override_font_sizes/font_size = 64
-text = "I Forgot
-The Name
-Of The Game"
+text = "Bubble
+Bobble
+-Remake-"
 horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="." unique_id=868909463]
@@ -146,10 +156,13 @@ offset_bottom = -43.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_o6xl0")
-disabled = true
 text = "ENDLESS MODE"
 
 [connection signal="enemyDied" from="EnemySpawn" to="." method="_on_enemy_spawn_enemy_died"]
+[connection signal="gameOver" from="EnemySpawn" to="." method="_on_enemy_spawn_game_over"]
 [connection signal="dead" from="EnemySpawn/Enemy" to="EnemySpawn" method="_on_enemy_dead"]
 [connection signal="timeout" from="EnemySpawn/Timer" to="EnemySpawn" method="_on_timer_timeout"]
+[connection signal="playerDead" from="Player" to="." method="_on_player_player_dead"]
+[connection signal="playerHP" from="Player" to="." method="_on_player_player_hp"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="EndlessButton" to="." method="_on_endless_button_pressed"]

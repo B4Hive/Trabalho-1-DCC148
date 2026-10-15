@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var plataform:StaticBody2D = $Platform
 
-# Called when the node enters the scene tree for the first time.
 func start() -> void:
 	placePlatforms(532)
 	placePlatforms(364)

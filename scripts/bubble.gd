@@ -36,7 +36,7 @@ func _on_body_entered(body: Node2D) -> void:
 		if not body.trapped:
 			target = body
 			target.trap(global_position)
-			set_collision_layer_value(1, true)
+			#set_collision_layer_value(1, true)
 			set_collision_mask_value(1, true)
 	if target and target != body:
 		if body.get_name() == "Player":
