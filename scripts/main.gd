@@ -37,9 +37,12 @@ func _on_player_player_hp(hp: int) -> void:
 	$HPLabel.text = "HP: " + str(hp)
 
 func _on_player_player_dead() -> void:
-	$Player.disable()
+	call_deferred("disablePlayer")
 	showUI()
 	$TitleLabel.text = "Defeat"
+
+func disablePlayer()->void:
+	$Player.disable()
 
 func _on_enemy_spawn_game_over() -> void:
 	showUI()
