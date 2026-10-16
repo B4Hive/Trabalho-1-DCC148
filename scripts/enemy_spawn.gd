@@ -34,7 +34,7 @@ func _on_timer_timeout() -> void:
 
 func _on_enemy_dead() -> void:
 	enemyDied.emit()
-	if maxEnemies > 0:
+	if maxEnemies >= 0:
 		timer.start(3)
 	else:
 		gameOver.emit()

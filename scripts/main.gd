@@ -24,7 +24,7 @@ func startGame(n:int)->void:
 	$EnemySpawn.start(n)
 
 func _on_start_button_pressed() -> void:
-	startGame(10)
+	startGame(9)
 
 func _on_endless_button_pressed() -> void:
 	startGame(999)
@@ -37,11 +37,10 @@ func _on_player_player_hp(hp: int) -> void:
 	$HPLabel.text = "HP: " + str(hp)
 
 func _on_player_player_dead() -> void:
-	$Player.queue_free()
+	$Player.disable()
 	showUI()
 	$TitleLabel.text = "Defeat"
 
 func _on_enemy_spawn_game_over() -> void:
-	$EnemySpawn.queue_free()
 	showUI()
 	$TitleLabel.text = "Victory!"
