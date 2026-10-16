@@ -49,7 +49,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -86,8 +86,7 @@ shape = SubResource("RectangleShape2D_57qmd")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1894768209]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"walk"
-frame_progress = 0.18558235
+animation = &"idle"
 
 [node name="BubblePool" type="Node" parent="." unique_id=1087692396]
 script = ExtResource("3_dqkch")

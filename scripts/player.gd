@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -40,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	sprite.play(animation)
 	move_and_slide()
-
+	# Handling collision with enemies
 	var collided_with_enemy := false
 	for i in get_slide_collision_count():
 		var collision := get_slide_collision(i)
@@ -56,6 +55,7 @@ func _physics_process(delta: float) -> void:
 			break
 	if not collided_with_enemy:
 		touchingEnemy = false
+	# TODO: add hurt animation and maybe i-frame?
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
